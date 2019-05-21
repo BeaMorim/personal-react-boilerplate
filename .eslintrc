@@ -17,6 +17,7 @@
   },
   "plugins": [ "react" ],
   "rules": {
+      "no-undef": 0,
       "indent": [ 2, 2 ],
       "semi": [ 2, "always" ],
       "no-console": 1,
@@ -40,7 +41,6 @@
       "vars-on-top": 1,
       "camelcase": 2,
       "comma-style": [2, "last"],
-      "jsx-quotes": [2, "prefer-single"],
       "key-spacing": [2, { "beforeColon": false, "afterColon": true }],
       "semi-style": [2, "last"],
       "constructor-super": 2,
