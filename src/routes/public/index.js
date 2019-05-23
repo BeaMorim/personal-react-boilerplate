@@ -1,7 +1,7 @@
 import home from './Home';
 
-const routes = {
-  Home: {...home},
-};
+const routes = [
+  ...home,
+];
 
 export default routes;
