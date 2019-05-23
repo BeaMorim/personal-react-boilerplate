@@ -1,5 +1,6 @@
 config-overrides.js
 src/serviceWorker.js
+src/**/*.test.js
 node_modules/*
 public/*
 build/*
