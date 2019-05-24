@@ -1,17 +1,17 @@
 import React from "react";
 import logo from "../../../assets/images/logo.svg";
 import "./style.less";
-import axios from '../../../utils/axios';
+import { connect } from 'react-redux';
+import { loadFoo } from '../../../state/ducks/home/actions';
+import { createStructuredSelector } from 'reselect';
+import { selectIsLoading } from '../../../state/ducks/home/selectors';
+import { Button } from 'antd';
 
-const request = () => {
-  axios({
-    method: 'get',
-    url: '/alunos',
-    baseURL: 'https://private-7d28c-educar2.apiary-mock.com',
-  });
-};
+const Header = ({action, loading}) => {
+  const request = () => {
+    action();
+  };
 
-const Header = () => {
   return (
     <header className="header">
       <div className="header-section">
@@ -27,10 +27,23 @@ const Header = () => {
         >
           Learn React
         </a>
-        <button onClick={request}>Make Request</button>
+        <Button onClick={request} loading={loading}>Make Request</Button>
       </div>
     </header>
   );
 };
 
-export default Header;
+const mapStateToProps = createStructuredSelector({
+  loading: selectIsLoading(),
+});
+
+const mapDispatchToProps = dispatch => ({
+  action: () => dispatch(loadFoo())
+});
+
+const withConnect = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+);
+
+export default withConnect(Header);
