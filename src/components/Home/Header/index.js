@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../../assets/images/logo.svg";
 import "./style.less";
-import axios from '../../../utils/axios/global-axios-default';
+import axios from '../../../utils/axios';
 
 const request = () => {
   axios({
