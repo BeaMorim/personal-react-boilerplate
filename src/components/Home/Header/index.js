@@ -1,6 +1,15 @@
 import React from "react";
-import logo from '../../../assets/images/logo.svg';
-import './style.less';
+import logo from "../../../assets/images/logo.svg";
+import "./style.less";
+import axios from '../../../utils/axios/global-axios-default';
+
+const request = () => {
+  axios({
+    method: 'get',
+    url: '/alunos',
+    baseURL: 'https://private-7d28c-educar2.apiary-mock.com',
+  });
+};
 
 const Header = () => {
   return (
@@ -18,6 +27,7 @@ const Header = () => {
         >
           Learn React
         </a>
+        <button onClick={request}>Make Request</button>
       </div>
     </header>
   );
