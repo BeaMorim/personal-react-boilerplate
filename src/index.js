@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import App from "./containers/App";
 import { Provider } from "react-redux";
 import { LocaleProvider } from "antd";
-import { ConnectedRouter } from "connected-react-router";
 import configureStore from "./state/store";
 import { createBrowserHistory } from "history";
 import ptBR from "antd/lib/locale-provider/pt_BR";
@@ -16,11 +15,9 @@ const store = configureStore(initialState, history);
 
 ReactDOM.render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <LocaleProvider locale={ptBR}>
-        <App />
-      </LocaleProvider>
-    </ConnectedRouter>
+    <LocaleProvider locale={ptBR}>
+      <App />
+    </LocaleProvider>
   </Provider>,
   document.getElementById("root")
 );

@@ -1,7 +1,6 @@
 /* eslint-disable */
 
 import { createStore, compose, applyMiddleware } from "redux";
-import { routerMiddleware } from "connected-react-router";
 import { middleware as reduxPackMiddleware } from "redux-pack";
 import createReducer from "../reducer";
 
@@ -16,16 +15,14 @@ export default function configureStore(initialState = {}, history) {
   }
 
   /*
-  Create the store with two middlewares
-  1. reduxPackMiddleware: Makes redux-pack work
-  2. routerMiddleware: Syncs the location/URL path to the state
+  Create the store with reduxPackMiddleware: Makes redux-pack work
   */
-  const middlewares = [reduxPackMiddleware, routerMiddleware(history)];
+  const middlewares = [reduxPackMiddleware];
 
   const enhancers = [applyMiddleware(...middlewares)];
 
   const store = createStore(
-    createReducer(history),
+    createReducer(),
     initialState,
     composeEnhancers(...enhancers)
   );
@@ -33,7 +30,7 @@ export default function configureStore(initialState = {}, history) {
   /* Make reducers hot reloadable */
   if (module.hot) {
     module.hot.accept("../reducer", () => {
-      store.replaceReducer(createReducer(history));
+      store.replaceReducer(createReducer());
     });
   }
 

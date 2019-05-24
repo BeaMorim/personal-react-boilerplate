@@ -6,7 +6,6 @@
     "antd": "^3.18.2",
     "axios": "^0.18.0",
     "babel-plugin-import": "^1.11.2",
-    "connected-react-router": "^6.4.0",
     "customize-cra": "^0.2.12",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
