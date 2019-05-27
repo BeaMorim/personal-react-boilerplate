@@ -16,12 +16,12 @@ export function fooReducer(state = initialState, action) {
           return {
             ...prevState,
             isLoading: true,
-            fooError: null
+            error: null
           };
         },
         finish: prevState => ({ ...prevState, isLoading: false }),
-        failure: prevState => ({ ...prevState, fooError: payload }),
-        success: prevState => ({ ...prevState, foo: payload })
+        failure: prevState => ({ ...prevState, error: payload }),
+        success: prevState => ({ ...prevState, data: payload })
       });
     default:
       return state;
