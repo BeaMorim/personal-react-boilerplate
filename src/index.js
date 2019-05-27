@@ -1,24 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./containers/App";
-import { Provider } from "react-redux";
-import { LocaleProvider } from "antd";
-import configureStore from "./state/store";
-import { createBrowserHistory } from "history";
-import ptBR from "antd/lib/locale-provider/pt_BR";
+import Root from './components/Root';
 import * as serviceWorker from "./serviceWorker";
 
-const history = createBrowserHistory();
 const initialState = {};
 
-const store = configureStore(initialState, history);
-
 ReactDOM.render(
-  <Provider store={store}>
-    <LocaleProvider locale={ptBR}>
-      <App />
-    </LocaleProvider>
-  </Provider>,
+  <Root initialState={initialState}>
+    <App />
+  </Root>,
   document.getElementById("root")
 );
 
