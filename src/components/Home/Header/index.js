@@ -1,10 +1,10 @@
 import React from "react";
-import logo from "../../../assets/images/logo.svg";
+import logo from "@/assets/images/logo.svg";
 import "./style.less";
 import { connect } from "react-redux";
 import { bindActionCreators, compose } from "redux";
 import { createStructuredSelector } from "reselect";
-import { fooActions, fooSelectors } from "../../../state/ducks/home";
+import { fooActions, fooSelectors } from "@/state/ducks/home";
 import { Button } from "antd";
 
 const Header = ({ actions, loading }) => {

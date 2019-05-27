@@ -1,11 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-
 import { Provider } from "react-redux";
 import { LocaleProvider } from "antd";
 import { createBrowserHistory } from "history";
 import ptBR from "antd/lib/locale-provider/pt_BR";
-import configureStore from "../../state/store";
+import configureStore from "@/state/store";
 
 const Root = ({ children, initialState = {} }) => {
   const history = createBrowserHistory();

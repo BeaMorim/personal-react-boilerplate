@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const lessToJs = require('less-vars-to-js');
-const { override, fixBabelImports, addLessLoader } = require('customize-cra');
+const { override, fixBabelImports, addLessLoader, addWebpackAlias } = require('customize-cra');
 
 const themePath = './src/assets/styles/antd-custom-variables.less';
 const themeFile = fs.readFileSync(path.join(__dirname, themePath), 'utf8');
@@ -16,5 +16,8 @@ module.exports = override(
   addLessLoader({
     javascriptEnabled: true,
     modifyVars: themeVariables,
+  }),
+  addWebpackAlias({
+    '@': path.resolve(__dirname, 'src'),
   }),
 );

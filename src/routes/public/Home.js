@@ -1,6 +1,6 @@
-import Home from "../../pages/Home";
+import Home from "@/pages/Home";
 import { Route } from "react-router-dom";
-import DefaultLayout from '../../layouts/DefaultLayout';
+import DefaultLayout from '@/layouts/DefaultLayout';
 
 const layout = Route;
 

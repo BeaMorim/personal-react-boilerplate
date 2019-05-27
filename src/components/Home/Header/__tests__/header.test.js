@@ -1,6 +1,6 @@
 import React from "react";
 import Header from '..';
-import { mount } from '../../../../utils/tests/setupTest';
+import { mount } from '@/utils/tests/setupTest';
 
 describe("unit tests", () => {
   it("find elements by class", () => {
