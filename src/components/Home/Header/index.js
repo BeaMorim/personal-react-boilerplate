@@ -1,15 +1,15 @@
 import React from "react";
 import logo from "../../../assets/images/logo.svg";
 import "./style.less";
-import { connect } from 'react-redux';
-import { loadFoo } from '../../../state/ducks/home/actions';
-import { createStructuredSelector } from 'reselect';
-import { selectIsLoading } from '../../../state/ducks/home/selectors';
-import { Button } from 'antd';
+import { connect } from "react-redux";
+import { bindActionCreators, compose } from "redux";
+import { createStructuredSelector } from "reselect";
+import { fooActions, fooSelectors } from "../../../state/ducks/home";
+import { Button } from "antd";
 
-const Header = ({action, loading}) => {
+const Header = ({ actions, loading }) => {
   const request = () => {
-    action({ page: 1});
+    actions.loadFoo({ page: 1 });
   };
 
   return (
@@ -27,23 +27,25 @@ const Header = ({action, loading}) => {
         >
           Learn React
         </a>
-        <Button onClick={request} loading={loading}>Make Request</Button>
+        <Button onClick={request} loading={loading}>
+          Make Request
+        </Button>
       </div>
     </header>
   );
 };
 
 const mapStateToProps = createStructuredSelector({
-  loading: selectIsLoading(),
+  loading: fooSelectors.selectIsLoading()
 });
 
 const mapDispatchToProps = dispatch => ({
-  action: params => dispatch(loadFoo(params))
+  actions: bindActionCreators(fooActions, dispatch)
 });
 
 const withConnect = connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 );
 
-export default withConnect(Header);
+export default compose(withConnect)(Header);
