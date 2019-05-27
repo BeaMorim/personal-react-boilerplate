@@ -1,10 +1,10 @@
-import { handle } from 'redux-pack';
-import defaultInitialState from './defaultInitialState';
+import { handle } from "redux-pack";
+import defaultInitialState from "./defaultInitialState";
 
 const reducerFactory = (
-  requestAction, 
+  requestAction,
   clearAction,
-  initialState = defaultInitialState(), 
+  initialState = defaultInitialState()
 ) => {
   const reducer = (state = initialState, action) => {
     const { type, payload } = action;
