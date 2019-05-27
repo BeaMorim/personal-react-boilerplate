@@ -9,7 +9,7 @@ import { Button } from 'antd';
 
 const Header = ({action, loading}) => {
   const request = () => {
-    action();
+    action({ page: 1});
   };
 
   return (
@@ -38,7 +38,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = dispatch => ({
-  action: () => dispatch(loadFoo())
+  action: params => dispatch(loadFoo(params))
 });
 
 const withConnect = connect(
